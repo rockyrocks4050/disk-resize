@@ -54,3 +54,11 @@ sda                         8:0    0   20G  0 disk
   └─ubuntu--vg-ubuntu--lv 253:0    0 18.2G  0 lvm  /
 sr0                        11:0    1 1024M  0 rom
 root@pg1:/home/sysadmin#
+
+######### SUMMARY ##########
+
+lsblk
+pvresize /dev/sda3
+lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+df -h /
